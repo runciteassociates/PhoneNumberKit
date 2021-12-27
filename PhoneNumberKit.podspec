@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "RuncitePhoneNumberKit"
+  s.name             = "PhoneNumberKit"
   s.version          = "3.4.0"
   s.summary          = "Swift framework for working with phone numbers"
 

@@ -7,13 +7,13 @@ let package = Package(
         .iOS(.v13)
     ],
     products: [
-        .library(name: "RuncitePhoneNumberKit", targets: ["RuncitePhoneNumberKit"]),
-        .library(name: "RuncitePhoneNumberKit-Static", type: .static, targets: ["RuncitePhoneNumberKit"]),
-        .library(name: "RuncitePhoneNumberKit-Dynamic", type: .dynamic, targets: ["RuncitePhoneNumberKit"])
+        .library(name: "RuncitePhoneNumberKit", targets: ["PhoneNumberKit"]),
+        .library(name: "RuncitePhoneNumberKit-Static", type: .static, targets: ["PhoneNumberKit"]),
+        .library(name: "RuncitePhoneNumberKit-Dynamic", type: .dynamic, targets: ["PhoneNumberKit"])
     ],
     targets: [
-        .target(name: "RuncitePhoneNumberKit",
-                path: "RuncitePhoneNumberKit",
+        .target(name: "PhoneNumberKit",
+                path: "PhoneNumberKit",
                 exclude: ["Resources/Original",
                           "Resources/README.md",
                           "Resources/update.sh",
@@ -22,9 +22,9 @@ let package = Package(
                 resources: [
                     .process("Resources/PhoneNumberMetadata.json")
                 ]),
-        .testTarget(name: "RuncitePhoneNumberKitTests",
-                    dependencies: ["RuncitePhoneNumberKit"],
-                    path: "RuncitePhoneNumberKitTests",
+        .testTarget(name: "PhoneNumberKitTests",
+                    dependencies: ["PhoneNumberKit"],
+                    path: "PhoneNumberKitTests",
                     exclude: ["Info.plist"])
     ]
 )
