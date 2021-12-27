@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = "PhoneNumberKit"
-  s.version          = "3.3.3"
+  s.name             = "RuncitePhoneNumberKit"
+  s.version          = "3.4.0"
   s.summary          = "Swift framework for working with phone numbers"
 
 # This description is used to generate tags and improve search results.
@@ -20,39 +20,31 @@ Pod::Spec.new do |s|
                         A Swift framework for parsing, formatting and validating international phone numbers. Inspired by Google's libphonenumber.
                        DESC
 
-  s.homepage         = "https://github.com/marmelroy/PhoneNumberKit"
+  s.homepage         = "https://github.com/runciteassociates/PhoneNumberKit"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "Roy Marmelstein" => "marmelroy@gmail.com" }
-  s.source           = { :git => "https://github.com/marmelroy/PhoneNumberKit.git", :tag => s.version.to_s }
-  s.social_media_url   = "http://twitter.com/marmelroy"
+  s.author           = { "Anton Aleksieiev" => "a.aleksieiev@runcite.com" }
+  s.source           = { :git => "https://github.com/runciteassociates/PhoneNumberKit.git", :tag => s.version.to_s }
+  s.social_media_url   = "https://runcite.com"
 
 
   s.requires_arc = true
 
   s.ios.frameworks = 'CoreTelephony'
-  s.osx.frameworks = 'CoreTelephony'
-
-  s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.10'
-  s.tvos.deployment_target = '9.0'
-  s.watchos.deployment_target = '2.0'
-
-  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.0' }
-  s.swift_version = '5.0'
+  s.ios.deployment_target = '13.0'
+  
+  s.pod_target_xcconfig = { 'SWIFT_VERSION' => '5.5' }
+  s.swift_version = '5.5'
 
   s.subspec 'PhoneNumberKitCore' do |core|
-    core.ios.deployment_target = '9.0'
-    core.osx.deployment_target = '10.10'
-    core.tvos.deployment_target = '9.0'
-    core.watchos.deployment_target = '2.0'
+    core.ios.deployment_target = '13.0'
     core.source_files = "PhoneNumberKit/*.{swift}"
     core.resources = "PhoneNumberKit/Resources/PhoneNumberMetadata.json"
   end
 
   s.subspec 'UIKit' do |ui|
     ui.dependency 'PhoneNumberKit/PhoneNumberKitCore'
-    ui.ios.deployment_target = '9.0'
+    ui.ios.deployment_target = '13.0'
     ui.source_files = 'PhoneNumberKit/UI/'
   end
 

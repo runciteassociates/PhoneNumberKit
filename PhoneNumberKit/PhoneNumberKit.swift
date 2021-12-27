@@ -297,10 +297,8 @@ public final class PhoneNumberKit: NSObject {
 #if os(iOS) && !targetEnvironment(simulator) && !targetEnvironment(macCatalyst)
         let networkInfo = CTTelephonyNetworkInfo()
         var carrier: CTCarrier? = nil
-        if #available(iOS 12.0, *) {
-            carrier = networkInfo.serviceSubscriberCellularProviders?.values.first
-        } else {
-            carrier = networkInfo.subscriberCellularProvider
+        if let providers = networkInfo.serviceSubscriberCellularProviders {
+            carrier = providers.values.first(where: { $0.isoCountryCode != nil })
         }
 
         if let isoCountryCode = carrier?.isoCountryCode {
@@ -308,12 +306,8 @@ public final class PhoneNumberKit: NSObject {
         }
 #endif
         let currentLocale = Locale.current
-        if #available(iOS 10.0, *), let countryCode = currentLocale.regionCode {
+        if let countryCode = currentLocale.regionCode {
             return countryCode.uppercased()
-        } else {
-            if let countryCode = (currentLocale as NSLocale).object(forKey: .countryCode) as? String {
-                return countryCode.uppercased()
-            }
         }
         return PhoneNumberConstants.defaultCountry
     }

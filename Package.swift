@@ -2,18 +2,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "PhoneNumberKit",
+    name: "RuncitePhoneNumberKit",
     platforms: [
-        .iOS(.v9), .macOS(.v10_10), .tvOS(.v9), .watchOS(.v2)
+        .iOS(.v13)
     ],
     products: [
-        .library(name: "PhoneNumberKit", targets: ["PhoneNumberKit"]),
-        .library(name: "PhoneNumberKit-Static", type: .static, targets: ["PhoneNumberKit"]),
-        .library(name: "PhoneNumberKit-Dynamic", type: .dynamic, targets: ["PhoneNumberKit"])
+        .library(name: "RuncitePhoneNumberKit", targets: ["RuncitePhoneNumberKit"]),
+        .library(name: "RuncitePhoneNumberKit-Static", type: .static, targets: ["RuncitePhoneNumberKit"]),
+        .library(name: "RuncitePhoneNumberKit-Dynamic", type: .dynamic, targets: ["RuncitePhoneNumberKit"])
     ],
     targets: [
-        .target(name: "PhoneNumberKit",
-                path: "PhoneNumberKit",
+        .target(name: "RuncitePhoneNumberKit",
+                path: "RuncitePhoneNumberKit",
                 exclude: ["Resources/Original",
                           "Resources/README.md",
                           "Resources/update.sh",
@@ -22,9 +22,9 @@ let package = Package(
                 resources: [
                     .process("Resources/PhoneNumberMetadata.json")
                 ]),
-        .testTarget(name: "PhoneNumberKitTests",
-                    dependencies: ["PhoneNumberKit"],
-                    path: "PhoneNumberKitTests",
+        .testTarget(name: "RuncitePhoneNumberKitTests",
+                    dependencies: ["RuncitePhoneNumberKit"],
+                    path: "RuncitePhoneNumberKitTests",
                     exclude: ["Info.plist"])
     ]
 )
